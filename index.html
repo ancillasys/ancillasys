@@ -13,7 +13,7 @@
             --white: #ffffff;
             --text-muted: #64748b;
             --bg-alt: #f1f5f9;
-            --accent: #b45309; /* Tom bronze/ouro para o vitalício */
+            --accent: #b45309;
         }
 
         * {
@@ -152,33 +152,81 @@
             font-size: 15px;
         }
 
+        /* SEÇÃO ATUALIZADA: Demonstração por Imagens */
+        .demo-section {
+            padding: 80px 0;
+            background-color: var(--bg-alt);
+            text-align: center;
+        }
+
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .screenshot-item {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .screenshot-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .screenshot-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            object-fit: cover;
+            border: 1px solid #f1f5f9;
+        }
+
+        .screenshot-caption {
+            margin-top: 15px;
+            font-size: 16px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .screenshot-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 5px;
+        }
+
         /* Seção Segurança e Normas */
         .compliance {
             padding: 80px 0;
-            background-color: var(--bg-alt);
+            background-color: var(--white);
             text-align: center;
         }
 
         .compliance-box {
             max-width: 800px;
             margin: 0 auto;
-            background: var(--white);
+            background: var(--bg-alt);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
         /* Seção de Preço */
         .pricing {
             padding: 80px 0;
-            background-color: var(--white);
+            background-color: var(--bg-alt);
             text-align: center;
         }
 
         .price-card {
             max-width: 450px;
             margin: 0 auto;
-            background-color: var(--light);
+            background-color: var(--white);
             border: 2px solid var(--primary);
             border-radius: 16px;
             padding: 40px 30px;
@@ -248,7 +296,7 @@
         /* Contato */
         .contact {
             padding: 80px 0;
-            background-color: var(--bg-alt);
+            background-color: var(--white);
             text-align: center;
         }
 
@@ -290,6 +338,7 @@
     </header>
 
     <main>
+        <!-- Hero -->
         <section class="container hero">
             <h1>Controle de Depósitos Prévios com Segurança e Praticidade</h1>
             <p>Simplifique a escrituração financeira da sua serventia. O Cartório Control organiza seus lançamentos diários e gera livros completos em poucos cliques.</p>
@@ -301,6 +350,7 @@
             <p class="system-requirements">Compatível com Windows 10 e Windows 11</p>
         </section>
 
+        <!-- Recursos -->
         <section class="features">
             <div class="container">
                 <h2 class="section-title">O que o Cartório Control faz por você?</h2>
@@ -324,6 +374,32 @@
             </div>
         </section>
 
+        <!-- SEÇÃO: Demonstração por Imagens -->
+        <section class="demo-section">
+            <div class="container">
+                <h2 class="section-title">Conheça o Sistema por Dentro</h2>
+                
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="print-tela-inicial.png" alt="Tela Principal do Cartório Control">
+                        <div class="screenshot-caption">Painel Principal</div>
+                        <div class="screenshot-desc">Interface moderna e limpa para acompanhar o status e o saldo da serventia.</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="print-lancamentos.png" alt="Fluxo de Lançamentos Financeiros">
+                        <div class="screenshot-caption">Controle de Lançamentos</div>
+                        <div class="screenshot-desc">Insira depósitos, devoluções ou estornos com cálculos automáticos e sem erros.</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="print-impressao.png" alt="Visualização do Relatório A4">
+                        <div class="screenshot-caption">Relatórios em Padrão A4</div>
+                        <div class="screenshot-desc">Termos e livros gerados sob medida, prontos para salvar em PDF ou imprimir de imediato.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conformidade e Segurança -->
         <section class="compliance">
             <div class="container">
                 <div class="compliance-box">
@@ -335,6 +411,7 @@
             </div>
         </section>
 
+        <!-- Seção de Preço -->
         <section class="pricing">
             <div class="container">
                 <h2 class="section-title">Investimento Único e Transparente</h2>
@@ -354,13 +431,14 @@
                         <li>1 ano de Suporte Técnico dedicado</li>
                     </ul>
                     
-                    <a href="https://github.com/ancillasys/ancillasys/releases/download/v1.0.0/Cartorio.Control.Setup.1.0.0.exe" class="btn-download" style="padding: 12px 24px; font-size: 16px; width: 100%; justify-content: center;">
+                    <a href="COLE_AQUI_O_LINK_DA_RELEASE" class="btn-download" style="padding: 12px 24px; font-size: 16px; width: 100%; justify-content: center;">
                         Adquirir Licença
                     </a>
                 </div>
             </div>
         </section>
 
+        <!-- Suporte/Contato -->
         <section class="container contact">
             <h2>Precisa de suporte ou deseja tirar dúvidas antes de comprar?</h2>
             <p style="color: var(--text-muted); margin-top: 10px;">Entre em contato diretamente para suporte técnico, solicitações de customização ou detalhes sobre emissão de nota fiscal para a serventia.</p>

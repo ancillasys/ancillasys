@@ -152,7 +152,7 @@
             font-size: 15px;
         }
 
-        /* SEÇÃO ATUALIZADA: Demonstração por Imagens */
+        /* SEÇÃO ATUALIZADA: Demonstração por Imagens com Efeito de Zoom */
         .demo-section {
             padding: 80px 0;
             background-color: var(--bg-alt);
@@ -172,11 +172,7 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
-            transition: transform 0.2s;
-        }
-
-        .screenshot-item:hover {
-            transform: translateY(-5px);
+            /* Removemos o efeito de subir o card inteiro para focar apenas na foto */
         }
 
         .screenshot-item img {
@@ -186,6 +182,16 @@
             display: block;
             object-fit: cover;
             border: 1px solid #f1f5f9;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease; /* Transição suave e elegante */
+            cursor: zoom-in; /* Muda o cursor do mouse para a lupinha de zoom */
+        }
+
+        /* O SEGREDO DO ZOOM: Aplica o efeito quando o mouse passa em cima da imagem */
+        .screenshot-item img:hover {
+            transform: scale(1.6); /* Aumenta a imagem em 60%. Se quiser maior, mude para 1.8 ou 2.0 */
+            position: relative;
+            z-index: 999; /* Joga a imagem para a frente de absolutamente tudo no site */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra marcante para dar efeito de flutuação */
         }
 
         .screenshot-caption {
@@ -200,7 +206,6 @@
             color: var(--text-muted);
             margin-top: 5px;
         }
-
         /* Seção Segurança e Normas */
         .compliance {
             padding: 80px 0;

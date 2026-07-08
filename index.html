@@ -152,7 +152,7 @@
             font-size: 15px;
         }
 
-        /* SEÇÃO ATUALIZADA: Demonstração por Imagens com Efeito de Zoom */
+        /* Demonstração por Imagens */
         .demo-section {
             padding: 80px 0;
             background-color: var(--bg-alt);
@@ -172,7 +172,6 @@
             border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
-            /* Removemos o efeito de subir o card inteiro para focar apenas na foto */
         }
 
         .screenshot-item img {
@@ -182,16 +181,14 @@
             display: block;
             object-fit: cover;
             border: 1px solid #f1f5f9;
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease; /* Transição suave e elegante */
-            cursor: zoom-in; /* Muda o cursor do mouse para a lupinha de zoom */
+            transition: all 0.2s ease;
+            cursor: zoom-in; /* Cursor de lupa indicando que dá para ampliar */
         }
 
-        /* O SEGREDO DO ZOOM: Aplica o efeito quando o mouse passa em cima da imagem */
+        /* Micro-feedback visual ao passar o mouse */
         .screenshot-item img:hover {
-            transform: scale(1.6); /* Aumenta a imagem em 60%. Se quiser maior, mude para 1.8 ou 2.0 */
-            position: relative;
-            z-index: 999; /* Joga a imagem para a frente de absolutamente tudo no site */
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4); /* Adiciona uma sombra marcante para dar efeito de flutuação */
+            transform: scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .screenshot-caption {
@@ -206,6 +203,54 @@
             color: var(--text-muted);
             margin-top: 5px;
         }
+
+        /* NOVO: Estilos do Visualizador de Tela Cheia (Lightbox) */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95); /* Fundo escuro semi-transparente */
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transform: scale(0.95);
+            transition: transform 0.2s ease;
+        }
+
+        .lightbox.active img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--white);
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+        }
+
         /* Seção Segurança e Normas */
         .compliance {
             padding: 80px 0;
@@ -379,10 +424,11 @@
             </div>
         </section>
 
-        <!-- SEÇÃO: Demonstração por Imagens -->
+        <!-- Seção: Demonstração por Imagens -->
         <section class="demo-section">
             <div class="container">
                 <h2 class="section-title">Conheça o Sistema por Dentro</h2>
+                <p style="color: var(--text-muted); margin-top: -40px; margin-bottom: 40px; font-size: 15px;">Clique em qualquer imagem para ampliá-la em tela cheia.</p>
                 
                 <div class="screenshot-grid">
                     <div class="screenshot-item">
@@ -403,6 +449,12 @@
                 </div>
             </div>
         </section>
+
+        <!-- NOVO ELEMENTO HTML: Estrutura da janela de tela cheia -->
+        <div id="customLightbox" class="lightbox">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightboxImg" src="" alt="Imagem Ampliada">
+        </div>
 
         <!-- Conformidade e Segurança -->
         <section class="compliance">
@@ -456,6 +508,26 @@
             <p>&copy; 2026 Cartório Control. Desenvolvido por Habib. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <!-- NOVO SCRIPT: Ativa a lógica do clique para tela cheia -->
+    <script>
+        const lightbox = document.getElementById('customLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+
+        // Adiciona o evento de clique em todas as imagens da vitrine
+        document.querySelectorAll('.screenshot-item img').forEach(image => {
+            image.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+            });
+        });
+
+        // Fecha a janela de tela cheia ao clicar em qualquer lugar dela
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    </script>
 
 </body>
 </html>

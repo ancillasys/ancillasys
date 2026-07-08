@@ -182,10 +182,9 @@
             object-fit: cover;
             border: 1px solid #f1f5f9;
             transition: all 0.2s ease;
-            cursor: zoom-in; /* Cursor de lupa indicando que dá para ampliar */
+            cursor: zoom-in;
         }
 
-        /* Micro-feedback visual ao passar o mouse */
         .screenshot-item img:hover {
             transform: scale(1.03);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -204,7 +203,7 @@
             margin-top: 5px;
         }
 
-        /* NOVO: Estilos do Visualizador de Tela Cheia (Lightbox) */
+        /* Visualizador de Tela Cheia (Lightbox) */
         .lightbox {
             display: none;
             position: fixed;
@@ -212,7 +211,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 23, 42, 0.95); /* Fundo escuro semi-transparente */
+            background-color: rgba(15, 23, 42, 0.95);
             z-index: 9999;
             justify-content: center;
             align-items: center;
@@ -388,7 +387,6 @@
     </header>
 
     <main>
-        <!-- Hero -->
         <section class="container hero">
             <h1>Controle de Depósitos Prévios com Segurança e Praticidade</h1>
             <p>Simplifique a escrituração financeira da sua serventia. O Cartório Control organiza seus lançamentos diários e gera livros completos em poucos cliques.</p>
@@ -400,7 +398,6 @@
             <p class="system-requirements">Compatível com Windows 10 e Windows 11</p>
         </section>
 
-        <!-- Recursos -->
         <section class="features">
             <div class="container">
                 <h2 class="section-title">O que o Cartório Control faz por você?</h2>
@@ -416,6 +413,16 @@
                         <p>Controle absoluto de depósitos, conversões, estornos e devoluções com tabelas organizadas e cálculos automáticos.</p>
                     </div>
                     <div class="card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Valores Exatos para a DAP</h3>
+                        <p>Elimine erros manuais. O sistema consolida e informa o valor exato dos depósitos necessários para o preenchimento da sua DAP com total segurança fiscal.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💻</div>
+                        <h3>Sincronização em Rede</h3>
+                        <p>Trabalhe em equipe. Instale o sistema na rede local do cartório em várias máquinas: o que o colaborador lança no Computador A aparece na hora na tela do Tabelião.</p>
+                    </div>
+                    <div class="card">
                         <div class="card-icon">🖨️</div>
                         <h3>Pronto para Impressão</h3>
                         <p>Visualização nativa em formato A4 Vertical (Portrait) configurada milimetricamente para impressão física ou salvamento em PDF.</p>
@@ -424,7 +431,6 @@
             </div>
         </section>
 
-        <!-- Seção: Demonstração por Imagens -->
         <section class="demo-section">
             <div class="container">
                 <h2 class="section-title">Conheça o Sistema por Dentro</h2>
@@ -450,13 +456,11 @@
             </div>
         </section>
 
-        <!-- NOVO ELEMENTO HTML: Estrutura da janela de tela cheia -->
         <div id="customLightbox" class="lightbox">
             <span class="lightbox-close">&times;</span>
             <img id="lightboxImg" src="" alt="Imagem Ampliada">
         </div>
 
-        <!-- Conformidade e Segurança -->
         <section class="compliance">
             <div class="container">
                 <div class="compliance-box">
@@ -468,7 +472,6 @@
             </div>
         </section>
 
-        <!-- Seção de Preço -->
         <section class="pricing">
             <div class="container">
                 <h2 class="section-title">Investimento Único e Transparente</h2>
@@ -495,7 +498,6 @@
             </div>
         </section>
 
-        <!-- Suporte/Contato -->
         <section class="container contact">
             <h2>Precisa de suporte ou deseja tirar dúvidas antes de comprar?</h2>
             <p style="color: var(--text-muted); margin-top: 10px;">Entre em contato diretamente para suporte técnico, solicitações de customização ou detalhes sobre emissão de nota fiscal para a serventia.</p>
@@ -509,12 +511,10 @@
         </div>
     </footer>
 
-    <!-- NOVO SCRIPT: Ativa a lógica do clique para tela cheia -->
     <script>
         const lightbox = document.getElementById('customLightbox');
         const lightboxImg = document.getElementById('lightboxImg');
 
-        // Adiciona o evento de clique em todas as imagens da vitrine
         document.querySelectorAll('.screenshot-item img').forEach(image => {
             image.addEventListener('click', () => {
                 lightbox.classList.add('active');
@@ -523,7 +523,6 @@
             });
         });
 
-        // Fecha a janela de tela cheia ao clicar em qualquer lugar dela
         lightbox.addEventListener('click', () => {
             lightbox.classList.remove('active');
         });

@@ -10,7 +10,9 @@
             --primary-hover: #1d4ed8;
             --dark: #0f172a;
             --light: #f8fafc;
+            --white: #ffffff;
             --text-muted: #64748b;
+            --bg-alt: #f1f5f9;
         }
 
         * {
@@ -34,34 +36,45 @@
 
         /* Header */
         header {
-            padding: 30px 0;
+            background-color: var(--white);
+            padding: 20px 0;
             border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--primary);
         }
 
         /* Hero Section */
         .hero {
-            padding: 100px 0;
+            padding: 80px 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 42px;
             font-weight: 800;
             margin-bottom: 20px;
             color: var(--dark);
+            letter-spacing: -0.5px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             color: var(--text-muted);
-            max-width: 700px;
-            margin: 0 auto 40px auto;
+            max-width: 750px;
+            margin: 0 auto 35px auto;
         }
 
         /* Botão de Download */
@@ -91,29 +104,115 @@
             color: var(--text-muted);
         }
 
+        /* Seção de Recursos (Cards) */
+        .features {
+            padding: 80px 0;
+            background-color: var(--white);
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 50px;
+            color: var(--dark);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1max));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* Seção Segurança e Normas */
+        .compliance {
+            padding: 80px 0;
+            background-color: var(--bg-alt);
+            text-align: center;
+        }
+
+        .compliance-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+        }
+
+        /* Contato */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary);
+            padding: 10px 24px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
         /* Rodapé */
         footer {
-            margin-top: 100px;
             padding: 40px 0;
             text-align: center;
             border-top: 1px solid #e2e8f0;
             color: var(--text-muted);
             font-size: 14px;
+            background-color: var(--white);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="container">
+        <div class="container header-flex">
             <div class="logo">🏛️ Cartório Control</div>
         </div>
     </header>
 
-    <main class="container">
-        <section class="hero">
+    <main>
+        <section class="container hero">
             <h1>Controle de Depósitos Prévios com Segurança e Praticidade</h1>
-            <p>Gerencie livros de abertura, folhas de lançamentos e termos de encerramento em uma interface moderna, rápida e em conformidade com as normas vigentes.</p>
+            <p>Simplifique a escrituração financeira da sua serventia. O Cartório Control organiza seus lançamentos diários e gera livros completos em poucos cliques.</p>
             
             <a href="https://github.com/ancillasys/ancillasys/releases/download/v1.0.0/Cartorio.Control.Setup.1.0.0.exe" class="btn-download">
                 Baixar para Windows (64-bit)
@@ -121,11 +220,51 @@
             
             <p class="system-requirements">Compatível com Windows 10 e Windows 11</p>
         </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">O que o Cartório Control faz por você?</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">📖</div>
+                        <h3>Termos Automatizados</h3>
+                        <p>Gere Termos de Abertura e Encerramento padronizados automaticamente com os dados do titular, CNS, cidade e UF da serventia.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Folhas de Lançamento</h3>
+                        <p>Controle absoluto de depósitos, conversões, estornos e devoluções com tabelas organizadas e cálculos automáticos.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🖨️</div>
+                        <h3>Pronto para Impressão</h3>
+                        <p>Visualização nativa em formato A4 Vertical (Portrait) configurada milimetricamente para impressão física ou salvamento em PDF.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="compliance">
+            <div class="container">
+                <div class="compliance-box">
+                    <h2 style="margin-bottom: 15px; color: var(--dark);">🔒 Segurança e Conformidade Jurídica</h2>
+                    <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 0;">
+                        Desenvolvido sob rígidos padrões de segurança da informação, o sistema atua em conformidade com as normas vigentes das corregedorias para o controle financeiro de depósitos prévios, garantindo a integridade e a autenticidade de cada folha gerada.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container contact">
+            <h2>Precisa de suporte ou customizações?</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">Tem alguma dúvida sobre a instalação ou deseja uma função específica para o seu estado?</p>
+            <a href="#" class="btn-contact">Falar com o Suporte</a>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Cartório Control. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Cartório Control. Desenvolvido por AncillaSys. Todos os direitos reservados.</p>
         </div>
     </footer>
 

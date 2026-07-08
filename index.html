@@ -13,6 +13,7 @@
             --white: #ffffff;
             --text-muted: #64748b;
             --bg-alt: #f1f5f9;
+            --accent: #b45309; /* Tom bronze/ouro para o vitalício */
         }
 
         * {
@@ -120,7 +121,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1max));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -167,9 +168,87 @@
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
         }
 
+        /* Seção de Preço */
+        .pricing {
+            padding: 80px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .price-card {
+            max-width: 450px;
+            margin: 0 auto;
+            background-color: var(--light);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .badge-vitalicio {
+            position: absolute;
+            top: -15px;
+            left: 50px;
+            right: 50px;
+            background-color: var(--accent);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 6px 0;
+            border-radius: 20px;
+            letter-spacing: 1px;
+        }
+
+        .price-title {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .price-amount {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+
+        .price-subtitle {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: -10px;
+            margin-bottom: 25px;
+        }
+
+        .price-features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 35px;
+            padding: 0 10px;
+        }
+
+        .price-features-list li {
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+        }
+
+        .price-features-list li::before {
+            content: "✓";
+            color: #16a34a;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
         /* Contato */
         .contact {
             padding: 80px 0;
+            background-color: var(--bg-alt);
             text-align: center;
         }
 
@@ -183,6 +262,7 @@
             padding: 10px 24px;
             border-radius: 6px;
             transition: all 0.2s;
+            background-color: var(--white);
         }
 
         .btn-contact:hover {
@@ -214,8 +294,8 @@
             <h1>Controle de Depósitos Prévios com Segurança e Praticidade</h1>
             <p>Simplifique a escrituração financeira da sua serventia. O Cartório Control organiza seus lançamentos diários e gera livros completos em poucos cliques.</p>
             
-            <a href="https://github.com/ancillasys/ancillasys/releases/download/v1.0.0/Cartorio.Control.Setup.1.0.0.exe" class="btn-download">
-                Baixar para Windows (64-bit)
+            <a href="COLE_AQUI_O_LINK_DA_RELEASE" class="btn-download">
+                Baixar Versão de Avaliação
             </a>
             
             <p class="system-requirements">Compatível com Windows 10 e Windows 11</p>
@@ -255,16 +335,42 @@
             </div>
         </section>
 
+        <section class="pricing">
+            <div class="container">
+                <h2 class="section-title">Investimento Único e Transparente</h2>
+                
+                <div class="price-card">
+                    <div class="badge-vitalicio">✨ Oferta Exclusiva</div>
+                    <h3 class="price-title">Licença Vitalícia</h3>
+                    
+                    <div class="price-amount">R$ 997,00</div>
+                    <div class="price-subtitle">PAGAMENTO ÚNICO — SEM MENSALIDADES</div>
+                    
+                    <ul class="price-features-list">
+                        <li>Acesso vitalício ao sistema (sua licença nunca expira)</li>
+                        <li>Instalação local (dados 100% protegidos no seu PC)</li>
+                        <li>Geração ilimitada de folhas e termos</li>
+                        <li>Atualizações de conformidade e segurança inclusas</li>
+                        <li>1 ano de Suporte Técnico dedicado</li>
+                    </ul>
+                    
+                    <a href="https://github.com/ancillasys/ancillasys/releases/download/v1.0.0/Cartorio.Control.Setup.1.0.0.exe" class="btn-download" style="padding: 12px 24px; font-size: 16px; width: 100%; justify-content: center;">
+                        Adquirir Licença
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section class="container contact">
-            <h2>Precisa de suporte ou customizações?</h2>
-            <p style="color: var(--text-muted); margin-top: 10px;">Tem alguma dúvida sobre a instalação ou deseja uma função específica para o seu estado?</p>
-            <a href="#" class="btn-contact">Falar com o Suporte</a>
+            <h2>Precisa de suporte ou deseja tirar dúvidas antes de comprar?</h2>
+            <p style="color: var(--text-muted); margin-top: 10px;">Entre em contato diretamente para suporte técnico, solicitações de customização ou detalhes sobre emissão de nota fiscal para a serventia.</p>
+            <a href="#" class="btn-contact">Falar com o Desenvolvedor</a>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Cartório Control. Desenvolvido por AncillaSys. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Cartório Control. Desenvolvido por Habib. Todos os direitos reservados.</p>
         </div>
     </footer>
 

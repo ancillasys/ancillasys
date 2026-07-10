@@ -1,10 +1,11 @@
 {
   "123456": {
-    "plano": "vitalicio",
-    "validoAte": "indefinido"
-  },
-  "987654": {
     "plano": "anual",
-    "validoAte": "2027-07-10"
+    "validoAte": "2027-12-31",
+    "hardwareId": [
+      "ID-DO-COMPUTADOR-A",
+      "ID-DO-COMPUTADOR-B",
+      "ID-DO-COMPUTADOR-C"
+    ]
   }
 }

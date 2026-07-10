@@ -3,10 +3,6 @@
     "plano": "vitalicio",
     "validoAte": "indefinido"
   },
-  "654321": {
-    "plano": "mensal",
-    "validoAte": "2026-08-15"
-  },
   "987654": {
     "plano": "anual",
     "validoAte": "2027-07-10"

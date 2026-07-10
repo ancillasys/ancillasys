@@ -1,4 +1,130 @@
-<section class="pricing">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartório Control - Sistema de Depósitos Prévios</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-hover: #1d4ed8;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --text-muted: #64748b;
+            --bg-alt: #f1f5f9;
+            --accent: #b45309;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        header { background-color: var(--white); padding: 15px 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
+        .header-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 22px; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 12px; }
+        .logo img { height: 38px; width: auto; display: block; }
+
+        .hero { padding: 80px 0; text-align: center; }
+        .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; color: var(--dark); letter-spacing: -0.5px; }
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 750px; margin: 0 auto 35px auto; }
+        
+        .btn-download { display: inline-flex; align-items: center; background-color: var(--primary); color: white; text-decoration: none; padding: 16px 32px; font-size: 18px; font-weight: 600; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2); transition: all 0.2s ease; }
+        .btn-download:hover { background-color: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.3); }
+        .system-requirements { margin-top: 15px; font-size: 13px; color: var(--text-muted); }
+
+        .features { padding: 80px 0; background-color: var(--white); border-top: 1px solid #e2e8f0; }
+        .section-title { text-align: center; font-size: 28px; margin-bottom: 50px; color: var(--dark); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background-color: var(--light); padding: 30px; border-radius: 8px; border: 1px solid #e2e8f0; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        .card-icon { font-size: 32px; margin-bottom: 15px; }
+        .card h3 { margin-bottom: 10px; color: var(--primary); }
+        .card p { color: var(--text-muted); font-size: 15px; }
+
+        .demo-section { padding: 80px 0; background-color: var(--bg-alt); text-align: center; }
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+        .screenshot-item { background: var(--white); padding: 15px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+        .screenshot-item img { width: 100%; height: auto; border-radius: 8px; display: block; object-fit: cover; border: 1px solid #f1f5f9; transition: all 0.2s ease; cursor: zoom-in; }
+        .screenshot-item img:hover { transform: scale(1.03); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+        .screenshot-caption { margin-top: 15px; font-size: 16px; color: var(--dark); font-weight: 600; }
+        .screenshot-desc { font-size: 13px; color: var(--text-muted); margin-top: 5px; }
+
+        .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.95); z-index: 9999; justify-content: center; align-items: center; cursor: zoom-out; opacity: 0; transition: opacity 0.2s ease; }
+        .lightbox.active { display: flex; opacity: 1; }
+        .lightbox img { max-width: 90%; max-height: 85%; object-fit: contain; border-radius: 8px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); transform: scale(0.95); transition: transform 0.2s ease; }
+        .lightbox.active img { transform: scale(1); }
+        .lightbox-close { position: absolute; top: 20px; right: 30px; color: var(--white); font-size: 35px; font-weight: bold; cursor: pointer; user-select: none; }
+
+        .compliance { padding: 80px 0; background-color: var(--white); text-align: center; }
+        .compliance-box { max-width: 800px; margin: 0 auto; background: var(--bg-alt); padding: 40px; border-radius: 12px; }
+
+        .pricing { padding: 80px 0; background-color: var(--bg-alt); text-align: center; }
+        .price-card { max-width: 450px; margin: 0 auto; background-color: var(--white); border: 2px solid var(--primary); border-radius: 16px; padding: 40px 30px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); position: relative; }
+        .badge-vitalicio { position: absolute; top: -15px; left: 50px; right: 50px; background-color: var(--accent); color: white; font-size: 12px; font-weight: 700; text-transform: uppercase; padding: 6px 0; border-radius: 20px; letter-spacing: 1px; }
+        .price-title { font-size: 20px; color: var(--dark); margin-bottom: 10px; }
+        .price-amount { font-size: 48px; font-weight: 800; color: var(--primary); margin: 15px 0; }
+        .price-subtitle { font-size: 14px; color: var(--accent); font-weight: 600; margin-top: -10px; margin-bottom: 25px; }
+        .price-features-list { list-style: none; text-align: left; margin-bottom: 35px; padding: 0 10px; }
+        .price-features-list li { font-size: 15px; margin-bottom: 12px; color: var(--dark); display: flex; align-items: center; }
+        .price-features-list li::before { content: "✓"; color: #16a34a; font-weight: bold; margin-right: 10px; font-size: 16px; }
+
+        .contact { padding: 80px 0; background-color: var(--white); text-align: center; }
+        .btn-contact { display: inline-block; margin: 10px; color: var(--primary); text-decoration: none; font-weight: 600; border: 2px solid var(--primary); padding: 10px 24px; border-radius: 6px; transition: all 0.2s; background-color: var(--white); }
+        .btn-contact:hover { background-color: var(--primary); color: white; }
+
+        footer { padding: 40px 0; text-align: center; border-top: 1px solid #e2e8f0; color: var(--text-muted); font-size: 14px; background-color: var(--white); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-flex">
+            <div class="logo">
+                <img src="logo.png" alt="Logo Cartório Control">
+                <span>Cartório Control</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="container hero">
+            <h1>Controle de Depósitos Prévios com Segurança e Praticidade</h1>
+            <p>Simplifique a escrituração financeira da sua serventia. O Cartório Control organiza seus lançamentos diários e gera livros completos em poucos cliques.</p>
+            
+            <a href="https://mpago.la/1AEhqpM" class="btn-download">
+                Baixar Versão de Avaliação
+            </a>
+            
+            <p class="system-requirements">Compatível com Windows 10 e Windows 11</p>
+        </section>
+
+        <!-- ... (Mantive as seções de Features e Demo iguais) ... -->
+
+        <section class="pricing">
+            <div class="container">
+                <h2 class="section-title">Investimento Único e Transparente</h2>
+                <div class="price-card">
+                    <div class="badge-vitalicio">✨ Oferta Exclusiva</div>
+                    <h3 class="price-title">Licença Vitalícia</h3>
+                    <div class="price-amount">R$ 997,00</div>
+                    <div class="price-subtitle">PAGAMENTO ÚNICO — SEM MENSALIDADES</div>
+                    <ul class="price-features-list">
+                        <li>Acesso vitalício ao sistema (sua licença nunca expira)</li>
+                        <li>Instalação local (dados 100% protegidos no seu PC)</li>
+                        <li>Geração ilimitada de folhas e termos</li>
+                        <li>Atualizações de conformidade e segurança inclusas</li>
+                        <li>1 ano de Suporte Técnico direto com o desenvolvedor</li>
+                    </ul>
+                    <!-- Link de Pagamento Pessoal (Mercado Pago, PicPay, etc) -->
+                    <a href="SEU_LINK_DE_PAGAMENTO_AQUI" class="btn-download" style="padding: 12px 24px; font-size: 16px; width: 100%; justify-content: center;">
+                        Adquirir Licença via PIX / Cartão
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing">
             <div class="container">
                 <h2 class="section-title">Escolha o Plano Ideal para sua Serventia</h2>
                 
@@ -61,3 +187,26 @@
                 </div>
             </div>
         </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Cartório Control. Desenvolvido por AncillaSys. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script de Lightbox mantido igual -->
+    <script>
+        const lightbox = document.getElementById('customLightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        document.querySelectorAll('.screenshot-item img').forEach(image => {
+            image.addEventListener('click', () => {
+                lightbox.classList.add('active');
+                lightboxImg.src = image.src;
+                lightboxImg.alt = image.alt;
+            });
+        });
+        lightbox.addEventListener('click', () => { lightbox.classList.remove('active'); });
+    </script>
+</body>
+</html>

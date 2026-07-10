@@ -1,11 +1,47 @@
 {
-  "123456": {
+  "111111": {
+    "hardwareId": ["EA12B34C-567D-890E-FA12-3456789BCDEF"],
     "plano": "anual",
-    "validoAte": "2027-12-31",
+    "validoAte": "2027-12-31"
+  },
+
+  "222222": {
+    "hardwareId": ["FX98A76B-1234-5678-CD98-1234567ABCDE"],
+    "plano": "vitalicio"
+  },
+
+  "333333": {
     "hardwareId": [
-      "0E434120-E87E-4346-A031-848A150746DA",
-      "ID-DO-COMPUTADOR-B",
-      "ID-DO-COMPUTADOR-C"
-    ]
+      "ID-DO-PC-RECEPCAO-A",
+      "ID-DO-PC-FINANCEIRO-B",
+      "ID-DO-PC-TABELIAO-C"
+    ],
+    "plano": "anual",
+    "validoAte": "2028-06-15"
+  },
+
+  "444444": {
+    "hardwareId": [
+      "ID-PC-BALCAO-01",
+      "ID-PC-BALCAO-02"
+    ],
+    "plano": "vitalicio"
+  },
+
+  "555555": {
+    "hardwareId": ["ID-COMPUTADOR-DE-TESTE-DO-DEV"],
+    "plano": "anual",
+    "validoAte": "2025-12-31"
+  },
+
+  "666666": {
+    "hardwareId": ["A1B2C3D4-E5F6-7A8B-9C0D-E1F2A3B4C5D6"],
+    "plano": "anual",
+    "validoAte": "2027-03-10"
+  },
+
+  "777777": {
+    "hardwareId": ["Z9Y8X7W6-V5U4-T3S2-R1Q0-P9O8N7M6L5K4"],
+    "plano": "vitalicio"
   }
 }

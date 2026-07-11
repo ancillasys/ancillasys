@@ -27,11 +27,11 @@
         .logo img { height: 38px; }
 
         /* Hero */
-        .hero { padding: 80px 0; text-align: center; }
+        .hero { padding: 80px 0 50px 0; text-align: center; }
         .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; color: var(--dark); }
         .hero p { font-size: 18px; color: var(--text-muted); max-width: 750px; margin: 0 auto 35px auto; }
         
-        .btn-download { display: inline-flex; align-items: center; background-color: var(--primary); color: white; text-decoration: none; padding: 16px 32px; font-size: 18px; font-weight: 600; border-radius: 8px; transition: all 0.2s ease; }
+        .btn-download { display: inline-flex; align-items: center; justify-content: center; background-color: var(--primary); color: white; text-decoration: none; padding: 16px 32px; font-size: 18px; font-weight: 600; border-radius: 8px; transition: all 0.2s ease; width: 100%; text-align: center; }
         .btn-download:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
 
         /* Features & Screenshots */
@@ -43,6 +43,12 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background-color: var(--white); padding: 30px; border-radius: 8px; border: 1px solid #e2e8f0; }
         
+        /* Clientes / Prova Social */
+        .clients-bar { padding: 40px 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; text-align: center; }
+        .clients-bar p { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+        .clients-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .client-tag { background: var(--white); padding: 10px 20px; border-radius: 6px; border: 1px solid #e2e8f0; font-weight: 600; color: var(--dark); font-size: 14px; }
+
         /* Pricing */
         .price-card { background-color: var(--white); border: 2px solid #e2e8f0; border-radius: 16px; padding: 40px; position: relative; text-align: center; display: flex; flex-direction: column; }
         .price-card.featured { border-color: var(--primary); }
@@ -62,18 +68,55 @@
         <div class="container header-flex">
             <div class="logo">
                 <img src="logo.png" alt="Logo">
-                <span>Cartório Control - EM TESTE - NÃO EFETUE PAGAMENTOS AINDA</span>
+                <span>Cartório Control</span>
             </div>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="container hero">
             <h1>Sistema Eletrônico de Controle de Depósitos Prévios</h1>
-            <p>Simplifique a escrituração de depósitos prévios da sua serventia com um sistema robusto e seguro.</p>
-            <a href="https://github.com/ancillasys/ancillasys/releases/download/v1.0.0/Cartorio.Control.Setup.1.0.0.exe" class="btn-download">Baixar Versão de Avaliação</a>
+            <p>Simplifique a escrituração de depósitos prévios da sua serventia com um sistema robusto, seguro e integrado em rede local.</p>
+            <a href="https://github.com/ancillasys/ancillasys/releases/download/v1.0.0/Cartorio.Control.Setup.1.0.0.exe" class="btn-download" style="max-width: 350px;">Baixar Versão de Avaliação</a>
         </section>
 
+        <!-- Seção de Clientes (Quem já usa) -->
+        <section class="clients-bar bg-white">
+            <div class="container">
+                <p>Serventias que já modernizaram sua gestão</p>
+                <div class="clients-logos">
+                    <!-- Altere os nomes abaixo para os cartórios reais que você fechar atendimento -->
+                    <div class="client-tag">🏛️ 2º Ofício de Notas Uberlândia</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Funcionalidades (A novidade da Rede Compartilhada) -->
+        <section class="features bg-white">
+            <div class="container">
+                <h2 class="section-title">Por que escolher o Cartório Control?</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div style="font-size: 28px; margin-bottom: 15px;">🌐</div>
+                        <h3>Compartilhamento em Rede</h3>
+                        <p style="color: var(--text-muted); margin-top: 10px;">Trabalho em equipe sem furos. Quando o <strong>Funcionário A</strong> lança uma informação em um computador, o <strong>Funcionário B</strong> tem acesso aos mesmos dados instantaneamente ao abrir o sistema na máquina dele.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 28px; margin-bottom: 15px;">🔒</div>
+                        <h3>Segurança Local Offline</h3>
+                        <p style="color: var(--text-muted); margin-top: 10px;">Os dados não ficam salvos na nuvem de terceiros, mas sim na própria rede interna do cartório. Garantia de privacidade em total conformidade com as exigências normativas.</p>
+                    </div>
+                    <div class="card">
+                        <div style="font-size: 28px; margin-bottom: 15px;">📊</div>
+                        <h3>Gestão Centralizada</h3>
+                        <p style="color: var(--text-muted); margin-top: 10px;">Tenha o controle exato do saldo de depósitos prévios, evitando dupla digitação, inconsistências de balanço e facilitando auditorias internas.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Preços -->
         <section class="pricing bg-alt">
             <div class="container">
                 <h2 class="section-title">Escolha o Plano Ideal</h2>
@@ -84,13 +127,14 @@
                         <div class="price-amount">R$ 1.390,00</div>
                         <ul class="price-features-list">
                             <li>Acesso completo por 12 meses</li>
-                            <li><strong>Até 3 computadores inclusos</strong></li>
+                            <li><strong>Até 3 computadores sincronizados em rede</strong></li>
                             <li>PC extra: +R$ 290,00 (taxa única)</li>
                             <li>Instalação local e segura</li>
                             <li>Geração ilimitada de documentos</li>
-                            <li>Suporte prioritário via WhatsApp</li>
+                            <li>Suporte prioritário via WhatsApp comercial</li>
                         </ul>
-                        <a href="SEU_LINK_ANUAL_AQUI" class="btn-download">Assinar Anual</a>
+                        <!-- Lembre-se de trocar o 5500999999999 pelo número do seu chip novo -->
+                        <a href="https://wa.me/5500999999999?text=Olá!+Gostaria+de+adquirir+o+Plano+Anual+do+Cartório+Control." class="btn-download" target="_blank">Contratar Plano Anual</a>
                     </div>
 
                     <div class="price-card featured">
@@ -99,25 +143,29 @@
                         <div class="price-amount">R$ 2.790,00</div>
                         <ul class="price-features-list">
                             <li>Licença definitiva (nunca expira)</li>
-                            <li><strong>Até 5 computadores inclusos</strong></li>
+                            <li><strong>Até 5 computadores sincronizados em rede</strong></li>
                             <li>PC extra: +R$ 290,00 (taxa única)</li>
                             <li>Instalação permanente</li>
                             <li>Atualizações vitalícias inclusas</li>
                             <li>1 ano de suporte técnico incluso</li>
                         </ul>
-                        <a href="SEU_LINK_VITALICIO_AQUI" class="btn-download" style="background-color: var(--accent);">Adquirir Vitalício</a>
+                        <!-- Lembre-se de trocar o 5500999999999 pelo número do seu chip novo -->
+                        <a href="https://wa.me/5500999999999?text=Olá!+Gostaria+de+adquirir+a+Licença+Vitalícia+do+Cartório+Control." class="btn-download" style="background-color: var(--accent);" target="_blank">Adquirir via WhatsApp</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- FAQ -->
         <section class="faq bg-white">
             <div class="container" style="max-width: 800px;">
                 <h2 class="section-title">Dúvidas Frequentes</h2>
                 <div class="card">
-                    <p><strong>O sistema exige internet?</strong><br>Não. Ele funciona 100% offline para garantir a segurança dos dados do seu cartório.</p>
+                    <p><strong>O sistema pode ser instalado em mais de um computador?</strong><br>Sim! Ele foi projetado para funcionar de forma integrada na rede local do seu cartório. Quando um funcionário insere ou atualiza um dado, todos os outros computadores conectados têm acesso em tempo real.</p>
                     <br>
-                    <p><strong>Como recebo o sistema?</strong><br>Após o pagamento, você receberá um link exclusivo de download e o guia de instalação.</p>
+                    <p><strong>O sistema exige internet?</strong><br>Não. Ele funciona 100% offline dentro da infraestrutura da sua serventia para garantir o sigilo e a segurança completa dos dados.</p>
+                    <br>
+                    <p><strong>Como recebo o sistema e faço a instalação nas máquinas?</strong><br>Após falar conosco pelo WhatsApp e efetuar o pagamento seguro, você recebe o guia de ativação. Nós auxiliamos na configuração da rede interna para interligar os computadores, caso necessário.</p>
                 </div>
             </div>
         </section>

@@ -74,25 +74,21 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="container hero">
             <h1>Sistema Eletrônico de Controle de Depósitos Prévios</h1>
-            <p>Simplifique a escrituração de depósitos prévios da sua serventia com um sistema robusto, seguro e integrado em rede local.</p>
-            <a href="https://github.com/ancillasys/ancillasys/releases/download/v1.0.0/Cartorio.Control.Setup.1.0.0.exe" class="btn-download" style="max-width: 350px;">Baixar Versão de Avaliação</a>
+            <p>Simplifique a escrituração de depósitos prévios da sua serventia com um system robusto, seguro e integrado em rede local.</p>
+            <a id="btn-download-main" href="https://github.com/ancillasys/ancillasys/releases/latest" class="btn-download" style="max-width: 350px;">Baixar Versão de Avaliação</a>
         </section>
 
-        <!-- Seção de Clientes (Quem já usa) -->
         <section class="clients-bar bg-white">
             <div class="container">
                 <p>Serventias que já modernizaram sua gestão</p>
                 <div class="clients-logos">
-                    <!-- Altere os nomes abaixo para os cartórios reais que você fechar atendimento -->
                     <div class="client-tag">🏛️ 2º Ofício de Notas Uberlândia</div>
                 </div>
             </div>
         </section>
 
-        <!-- Seção de Funcionalidades (A novidade da Rede Compartilhada) -->
         <section class="features bg-white">
             <div class="container">
                 <h2 class="section-title">Por que escolher o Cartório Control?</h2>
@@ -116,7 +112,6 @@
             </div>
         </section>
 
-        <!-- Seção de Preços -->
         <section class="pricing bg-alt">
             <div class="container">
                 <h2 class="section-title">Escolha o Plano Ideal</h2>
@@ -133,7 +128,6 @@
                             <li>Geração ilimitada de documentos</li>
                             <li>Suporte prioritário via WhatsApp comercial</li>
                         </ul>
-                        <!-- Lembre-se de trocar o 5500999999999 pelo número do seu chip novo -->
                         <a href="https://wa.me/5500999999999?text=Olá!+Gostaria+de+adquirir+o+Plano+Anual+do+Cartório+Control." class="btn-download" target="_blank">Contratar Plano Anual</a>
                     </div>
 
@@ -149,14 +143,12 @@
                             <li>Atualizações vitalícias inclusas</li>
                             <li>1 ano de suporte técnico incluso</li>
                         </ul>
-                        <!-- Lembre-se de trocar o 5500999999999 pelo número do seu chip novo -->
                         <a href="https://wa.me/5500999999999?text=Olá!+Gostaria+de+adquirir+a+Licença+Vitalícia+do+Cartório+Control." class="btn-download" style="background-color: var(--accent);" target="_blank">Adquirir via WhatsApp</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ -->
         <section class="faq bg-white">
             <div class="container" style="max-width: 800px;">
                 <h2 class="section-title">Dúvidas Frequentes</h2>
@@ -176,6 +168,35 @@
             <p>&copy; 2026 Cartório Control. Desenvolvido por AncillaSys.</p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const repo = "ancillasys/ancillasys";
+            const botao = document.getElementById("btn-download-main");
+
+            // Faz uma requisição na API do GitHub para obter dados da última release publicada
+            fetch(`https://api.github.com/repos/${repo}/releases/latest`)
+                .then(response => {
+                    if (!response.ok) throw new Error("Erro na API do GitHub");
+                    return response.json();
+                })
+                .then(data => {
+                    // Procura dentro da release se existe algum arquivo que termina com '.exe'
+                    const instaladorExe = data.assets.find(asset => asset.name.endsWith('.exe'));
+                    
+                    if (instaladorExe) {
+                        // Altera o link do botão para baixar o executável direto
+                        botao.href = instaladorExe.browser_download_url;
+                        // Opcional: Atualiza o texto exibindo a tag da versão (Ex: v1.2.0)
+                        botao.textContent = `Baixar Versão de Avaliação (${data.tag_name})`;
+                    }
+                })
+                .catch(error => {
+                    console.error("Não foi possível carregar o link direto do instalador:", error);
+                    // Caso falhe por limite de requisição, o link continuará apontando para /releases/latest com segurança
+                });
+        });
+    </script>
 
 </body>
 </html>

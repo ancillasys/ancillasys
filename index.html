@@ -19,7 +19,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
         body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        
+         
         /* Header */
         header { background-color: var(--white); padding: 15px 0; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; }
         .header-flex { display: flex; justify-content: space-between; align-items: center; }
@@ -30,7 +30,7 @@
         .hero { padding: 80px 0 50px 0; text-align: center; }
         .hero h1 { font-size: 42px; font-weight: 800; margin-bottom: 20px; color: var(--dark); }
         .hero p { font-size: 18px; color: var(--text-muted); max-width: 750px; margin: 0 auto 35px auto; }
-        
+         
         .btn-download { display: inline-flex; align-items: center; justify-content: center; background-color: var(--primary); color: white; text-decoration: none; padding: 16px 32px; font-size: 18px; font-weight: 600; border-radius: 8px; transition: all 0.2s ease; width: 100%; text-align: center; }
         .btn-download:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
 
@@ -39,10 +39,10 @@
         .bg-white { background-color: var(--white); }
         .bg-alt { background-color: var(--bg-alt); }
         .section-title { text-align: center; font-size: 28px; margin-bottom: 50px; color: var(--dark); }
-        
+         
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background-color: var(--white); padding: 30px; border-radius: 8px; border: 1px solid #e2e8f0; }
-        
+         
         /* Clientes / Prova Social */
         .clients-bar { padding: 40px 0; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; text-align: center; }
         .clients-bar p { font-size: 13px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
@@ -99,7 +99,7 @@
                     <div class="card">
                         <div style="font-size: 28px; margin-bottom: 15px;">🌐</div>
                         <h3>Compartilhamento em Rede</h3>
-                        <p style="color: var(--text-muted); margin-top: 10px;">Trabalho em equipe sem furos. Quando o <strong>Funcionário A</strong> lança um depósito em um computador, o <strong>Funcionário B</strong> tem acesso aos mesmos lançamentos instantaneamente ao abrir o sistema na máquina dele.</p>
+                        <p style="color: var(--text-muted); margin-top: 10px;">Trabalho em equipe sem furos. Quando o <strong>Funcionário A</strong> lança um depósito in um computador, o <strong>Funcionário B</strong> tem acesso aos mesmos lançamentos instantaneamente ao abrir o sistema na máquina dele.</p>
                     </div>
                     <div class="card">
                         <div style="font-size: 28px; margin-bottom: 15px;">🔒</div>
@@ -130,11 +130,22 @@
             </div>
         </section>
 
+        <!-- SEÇÃO DE AUTORIDADE / EXPERIÊNCIA PRÁTICA -->
+        <section class="autoridade" style="padding: 80px 0; background-color: var(--white); border-top: 1px solid #e2e8f0;">
+            <div class="container" style="max-width: 800px; text-align: center;">
+                <div style="font-size: 35px; margin-bottom: 15px;">⚖️</div>
+                <h2 style="font-size: 26px; font-weight: 700; color: var(--dark); margin-bottom: 15px;">Desenvolvido por quem conhece a realidade dos cartórios</h2>
+                <p style="color: var(--text-muted); font-size: 16px; line-height: 1.7; max-width: 700px; margin: 0 auto;">
+                    O <strong>Cartório Control</strong> não foi criado por desenvolvedores distantes da sua realidade. Ele nasceu do conhecimento prático do dia a dia de uma serventia — entendendo na pele a rigidez dos prazos, a responsabilidade jurídica e a necessidade de processos que simplesmente não podem falhar. Cada detalhe do sistema foi pensado para economizar o tempo da sua equipe e blindar a sua gestão contra erros.
+                </p>
+            </div>
+        </section>
+
         <section class="pricing bg-alt">
             <div class="container">
                 <h2 class="section-title">Escolha o Plano Ideal</h2>
                 <div class="grid">
-                    
+                     
                     <div class="price-card">
                         <h3>Plano Anual</h3>
                         <div class="price-amount">R$ 1.390,00</div>
@@ -198,7 +209,7 @@
             const repo = "ancillasys/ancillasys";
             const botao = document.getElementById("btn-download-main");
 
-            // Faz uma requisição na API do GitHub para obter dados da última release publicada
+            // Faz uma requisição na API do GitHub para obter dados della última release publicada
             fetch(`https://api.github.com/repos/${repo}/releases/latest`)
                 .then(response => {
                     if (!response.ok) throw new Error("Erro na API do GitHub");
@@ -207,7 +218,7 @@
                 .then(data => {
                     // Procura dentro da release se existe algum arquivo que termina com '.exe'
                     const instaladorExe = data.assets.find(asset => asset.name.endsWith('.exe'));
-                    
+                     
                     if (instaladorExe) {
                         // Altera o link do botão para baixar o executável direto
                         botao.href = instaladorExe.browser_download_url;
